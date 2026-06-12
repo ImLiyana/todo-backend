@@ -6,15 +6,15 @@ import { Task } from './tasks/task.entity';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
-      type: 'postgres',
-      host: 'localhost',
-      port: 5432,
-      username: 'postgres',
-      password: '123liya',
-      database: 'tasks_db',
-      entities: [Task],
-      synchronize: true, // only for development
-    }),
+  type: 'postgres',
+  host: process.env.DB_HOST,
+  port: Number(process.env.DB_PORT),
+  username: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+  entities: [Task],
+  synchronize: true,
+}),
     TasksModule,
   ],
 })
