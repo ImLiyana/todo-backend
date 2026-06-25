@@ -1,0 +1,51 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "declaration": true,
+        "removeComments": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "allowSyntheticDefaultImports": true,
+        "target": "es2021",
+        "sourceMap": true,
+        "outDir": "./dist",
+        "rootDir": "./src",
+        "incremental": true,
+        "skipLibCheck": true,
+        "strictNullChecks": false,
+        "noImplicitAny": false,
+        "strictBindCallApply": false,
+        "forceConsistentCasingInFileNames": false,
+        "noFallthroughCasesInSwitch": false,
+        "types": [
+            "node"
+        ]
+    },
+    "files": [
+        "./src/app.controller.spec.ts",
+        "./src/app.controller.ts",
+        "./src/app.module.ts",
+        "./src/app.service.ts",
+        "./src/main.ts",
+        "./src/auth/auth.controller.spec.ts",
+        "./src/auth/auth.controller.ts",
+        "./src/auth/auth.module.ts",
+        "./src/auth/auth.service.spec.ts",
+        "./src/auth/auth.service.ts",
+        "./src/auth/jwt-auth.guard.ts",
+        "./src/auth/jwt.strategy.ts",
+        "./src/auth/user.entity.ts",
+        "./src/tasks/task.entity.ts",
+        "./src/tasks/tasks.controller.spec.ts",
+        "./src/tasks/tasks.controller.ts",
+        "./src/tasks/tasks.module.ts",
+        "./src/tasks/tasks.service.spec.ts",
+        "./src/tasks/tasks.service.ts"
+    ],
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+        "C:/Users/liyal/hello-react/backend/dist"
+    ]
+}
