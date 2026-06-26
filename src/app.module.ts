@@ -16,7 +16,7 @@ import { User } from './auth/user.entity';
 
     TypeOrmModule.forRoot({
       type: 'postgres',
-      url:' postgresql://tasks_db_lci4_user:NpMmgTQBqhDa9qjwd8LvbQImIwF1XtKq@dpg-d8l9qhbeo5us73b89dng-a.singapore-postgres.render.com/tasks_db_lci4',
+      url: process.env.DATABASE_URL,
       entities: [Task, User],
       synchronize: false,
       ssl: {
