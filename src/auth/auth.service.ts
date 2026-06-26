@@ -54,32 +54,43 @@ export class AuthService {
   // LOGIN
   // =========================
   async login(email: string, password: string) {
-    console.log('JWT SECRET:', process.env.JWT_SECRET);
-    if (!email || !password) {
-      throw new UnauthorizedException('Email and password required');
-    }
+  console.log('Login email:', email);
 
-    const user = await this.userRepository.findOne({
-      where: { email },
-    });
-
-    if (!user) {
-      throw new UnauthorizedException('Invalid credentials');
-    }
-
-    const isValid = await bcrypt.compare(password, user.password);
-
-    if (!isValid) {
-      throw new UnauthorizedException('Invalid credentials');
-    }
-
-    const payload = {
-      sub: user.id,
-      email: user.email,
-    };
-
-    return {
-      access_token: this.jwtService.sign(payload),
-    };
+  if (!email || !password) {
+    throw new UnauthorizedException('Email and password required');
   }
+
+  const user = await this.userRepository.findOne({
+    where: { email },
+  });
+
+  // 👇 ADD THIS
+  console.log('User found:', user);
+
+  if (!user) {
+    throw new UnauthorizedException('Invalid credentials');
+  }
+
+  // 👇 ADD THESE
+  console.log('Entered password:', password);
+  console.log('Stored hash:', user.password);
+
+  const isValid = await bcrypt.compare(password, user.password);
+
+  // 👇 ADD THIS
+  console.log('Password valid:', isValid);
+
+  if (!isValid) {
+    throw new UnauthorizedException('Invalid credentials');
+  }
+
+  const payload = {
+    sub: user.id,
+    email: user.email,
+  };
+
+  return {
+    access_token: this.jwtService.sign(payload),
+  };
+}
 }
