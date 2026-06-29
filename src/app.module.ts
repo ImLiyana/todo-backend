@@ -18,7 +18,7 @@ import { User } from './auth/user.entity';
       type: 'postgres',
       url: process.env.DATABASE_URL,
       entities: [Task, User],
-      synchronize: false,
+      synchronize: true,
       ssl: {
         rejectUnauthorized: false,
       },
